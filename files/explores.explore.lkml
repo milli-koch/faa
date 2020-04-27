@@ -1,4 +1,4 @@
-include: "/views/**/*.view"
+include: "/files/**/*.view"
 
 explore: aircraft {}
 
