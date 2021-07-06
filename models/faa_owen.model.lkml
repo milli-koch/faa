@@ -5,6 +5,13 @@ datagroup: faa_default_datagroup {
   max_cache_age: "24 hours"
 }
 
+datagroup: substitution_syntax_datagroup {
+  sql_trigger: SELECT MAX(id) FROM ${fake_table.SQL_TABLE_NAME};;
+  max_cache_age: "24 hours"
+}
+
+
+
 persist_with: faa_default_datagroup
 
 include: "/views/**/*.view"
