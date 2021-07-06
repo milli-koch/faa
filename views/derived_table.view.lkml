@@ -1,6 +1,6 @@
 view: derived_table {
  derived_table: {
-  sql_trigger_value: SELECT * FROM ${FAKE_TABLE.SQL_TABLE_NAME} ;;
+  #sql_trigger_value: SELECT * FROM ${FAKE_TABLE.SQL_TABLE_NAME} ;;
    sql: SELECT
     (CAST(`inventory_items`.`created_at` AS CHAR)) AS `inventory_items.created_time`,
         (DATE(`inventory_items`.`created_at`)) AS `inventory_items.created_date`,
