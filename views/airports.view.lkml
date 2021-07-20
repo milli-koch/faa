@@ -8,7 +8,7 @@ view: airports {
     type: number
     sql: ${TABLE}.id ;;
   }
-
+# Comment
   dimension: act_date {
     type: string
     sql: ${TABLE}.act_date ;;
