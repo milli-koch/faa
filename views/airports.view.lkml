@@ -56,7 +56,8 @@ view: airports {
 
   dimension: county {
     type: string
-    sql: ${TABLE}.county ;;
+    sql:  INITCAP(${TABLE}.county) ;;
+    map_layer_name: us_counties_fips
   }
 
   dimension: cust_intl {
