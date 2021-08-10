@@ -23,3 +23,7 @@ explore: aircraft_models {}
 explore: airports {}
 
 explore: flights {}
+
+explore: accidents {}
+
+explore: special_characters {}

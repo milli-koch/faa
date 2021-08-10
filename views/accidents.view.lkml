@@ -183,7 +183,32 @@ view: accidents {
     sql: ${TABLE}.weather_condition ;;
   }
 
+  dimension: really_long_string {
+    #label: "Formatted Name"
+    type: string
+    sql: "This is a really long string that we are looking to wrap in a single value vis" ;;
+    # html: <div class="vis-single-value">
+    #       <div style= "word-wrap: break-word; width:50%; font-size:40%;">
+    #       {{ rendered_value }}
+    #       </div>
+    #       </div>;;
+    # html: {% if size > 20 %}
+    # {{ value | truncatewords: 3}}<br>{{ value | }}   ;;
+    html: Number of CSAT Ratings: {{ length._rendered_value }} ;;
+  }
+
+  dimension: length {
+    type: string
+    sql: char_length(${really_long_string}) ;;
+  }
+
+  dimension: truncated_string {
+    type: string
+    sql: s ;;
+  }
+
   measure: count {
+    label: "This is not the view name"
     type: count
     drill_fields: [id, airport_name]
   }
