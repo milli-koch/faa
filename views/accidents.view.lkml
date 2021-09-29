@@ -164,7 +164,7 @@ view: accidents {
 
   dimension: purpose_of_flight {
     type: string
-    sql: ${TABLE}.purpose_of_flight ;;
+    sql: concat(${TABLE}.purpose_of_flight, "extra long string for rendering behavior") ;;
   }
 
   dimension: registration_number {
