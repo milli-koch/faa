@@ -190,7 +190,7 @@ view: accidents {
   dimension: really_long_string {
     #label: "Formatted Name"
     type: string
-    sql: "This is a really long string that we are looking to wrap in a single value vis" ;;
+    sql: "This is a really long string that we are looking to wrap in a single value vis - it isn't actually, now we are using this in a table vis to show render long table behavior" ;;
     # html: <div class="vis-single-value">
     #       <div style= "word-wrap: break-word; width:50%; font-size:40%;">
     #       {{ rendered_value }}
