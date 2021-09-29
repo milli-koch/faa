@@ -77,6 +77,10 @@ view: accidents {
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
+    link: {
+      label: "Owen Test"
+      url: "{{link}}&pivots=accidents.country"
+    }
   }
 
   dimension: far_description {
@@ -194,7 +198,7 @@ view: accidents {
     #       </div>;;
     # html: {% if size > 20 %}
     # {{ value | truncatewords: 3}}<br>{{ value | }}   ;;
-    html: Number of CSAT Ratings: {{ length._rendered_value }} ;;
+    #html: Number of CSAT Ratings: {{ length._rendered_value }} ;;
   }
 
   dimension: length {
@@ -211,5 +215,9 @@ view: accidents {
     label: "This is not the view name"
     type: count
     drill_fields: [id, airport_name]
+    link: {
+      label: "Owen Measure"
+      url: "{{link}}&pivots=accidents.country"
+    }
   }
 }
