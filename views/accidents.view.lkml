@@ -15,7 +15,7 @@ view: accidents {
   }
 
   dimension: air_carrier {
-    type: string
+    #type: string
     sql: ${TABLE}.air_carrier ;;
   }
 
