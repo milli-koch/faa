@@ -157,10 +157,19 @@ view: accidents {
       week,
       month,
       quarter,
-      year
+      year,
+      second
     ]
     sql: ${TABLE}.publication_date ;;
   }
+
+  measure: seconds {
+    type: number
+    value_format: "[h]:mm:ss"
+    sql: AVG(${publication_second}) / 86400.0 ;;
+  }
+
+
 
   dimension: purpose_of_flight {
     type: string
@@ -215,9 +224,10 @@ view: accidents {
     label: "This is not the view name"
     type: count
     drill_fields: [id, airport_name]
-    link: {
-      label: "Owen Measure"
-      url: "{{link}}&pivots=accidents.country"
-    }
+    # link: {
+    #   label: "Owen Measure"
+    #   url: "{{link}}&pivots=accidents.country"
+    # }
+    html: {{ air_carrier._value }} ;;
   }
 }

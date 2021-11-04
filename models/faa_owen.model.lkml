@@ -24,6 +24,21 @@ explore: airports {}
 
 explore: flights {}
 
-explore: accidents {}
+explore: accidents {
+  view_name: accidents
+  always_filter: {
+    filters: [accidents.air_carrier: "AlwaysFilter"]
+  }
+}
+
+explore: accidents_extended {
+  extends: [accidents]
+  hidden: no
+  always_filter: {
+    filters: [accidents.air_carrier: "AlwaysFilter"]
+  }
+}
 
 explore: special_characters_owen_test {}
+
+explore: ndt_filter {}

@@ -21,6 +21,21 @@ view: flights {
     sql: ${TABLE}.arr_time ;;
   }
 
+  dimension_group: arr_labeled {
+    label: "ARR LABELED"
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.arr_time ;;
+  }
+
   dimension: cancelled {
     type: string
     sql: ${TABLE}.cancelled ;;
