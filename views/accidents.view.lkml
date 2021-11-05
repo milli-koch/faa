@@ -22,6 +22,7 @@ view: accidents {
   dimension: aircraft_category {
     type: string
     sql: ${TABLE}.aircraft_category ;;
+    suggest_persist_for: "30 seconds"
   }
 
   dimension: aircraft_damage {
