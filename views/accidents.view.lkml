@@ -7,6 +7,7 @@ view: accidents {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
+    #changes
   }
 
   dimension: accident_number {
