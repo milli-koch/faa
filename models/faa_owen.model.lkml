@@ -25,6 +25,7 @@ explore: airports {}
 explore: flights {}
 
 explore: accidents {
+  view_label: "ACCID"
   view_name: accidents
   always_filter: {
     filters: [accidents.air_carrier: "AlwaysFilter"]
