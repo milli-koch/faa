@@ -24,6 +24,7 @@ explore: airports {}
 
 explore: flights {}
 
+
 explore: flights_and_airports {
   view_name: flights
   join: airports {
@@ -37,6 +38,22 @@ explore: flights_and_airports {
   }
 }
 
-explore: accidents {}
 
-explore: special_characters {}
+explore: accidents {
+  view_name: accidents
+  always_filter: {
+    filters: [accidents.air_carrier: "AlwaysFilter"]
+  }
+}
+
+explore: accidents_extended {
+  extends: [accidents]
+  hidden: no
+  always_filter: {
+    filters: [accidents.air_carrier: "AlwaysFilter"]
+  }
+}
+
+# explore: special_characters_owen_test {}
+
+explore: ndt_filter {}

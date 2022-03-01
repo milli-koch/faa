@@ -15,13 +15,14 @@ view: accidents {
   }
 
   dimension: air_carrier {
-    type: string
+    #type: string
     sql: ${TABLE}.air_carrier ;;
   }
 
   dimension: aircraft_category {
     type: string
     sql: ${TABLE}.aircraft_category ;;
+    suggest_persist_for: "30 seconds"
   }
 
   dimension: aircraft_damage {
@@ -77,6 +78,10 @@ view: accidents {
   dimension: event_id {
     type: string
     sql: ${TABLE}.event_id ;;
+    link: {
+      label: "Owen Test"
+      url: "{{link}}&pivots=accidents.country"
+    }
   }
 
   dimension: far_description {
@@ -153,14 +158,23 @@ view: accidents {
       week,
       month,
       quarter,
-      year
+      year,
+      second
     ]
     sql: ${TABLE}.publication_date ;;
   }
 
+  measure: seconds {
+    type: number
+    value_format: "[h]:mm:ss"
+    sql: AVG(${publication_second}) / 86400.0 ;;
+  }
+
+
+
   dimension: purpose_of_flight {
     type: string
-    sql: ${TABLE}.purpose_of_flight ;;
+    sql: concat(${TABLE}.purpose_of_flight, "extra long string for rendering behavior") ;;
   }
 
   dimension: registration_number {
@@ -186,7 +200,7 @@ view: accidents {
   dimension: really_long_string {
     #label: "Formatted Name"
     type: string
-    sql: "This is a really long string that we are looking to wrap in a single value vis" ;;
+    sql: "This is a really long string that we are looking to wrap in a single value vis - it isn't actually, now we are using this in a table vis to show render long table behavior" ;;
     # html: <div class="vis-single-value">
     #       <div style= "word-wrap: break-word; width:50%; font-size:40%;">
     #       {{ rendered_value }}
@@ -194,7 +208,7 @@ view: accidents {
     #       </div>;;
     # html: {% if size > 20 %}
     # {{ value | truncatewords: 3}}<br>{{ value | }}   ;;
-    html: Number of CSAT Ratings: {{ length._rendered_value }} ;;
+    #html: Number of CSAT Ratings: {{ length._rendered_value }} ;;
   }
 
   dimension: length {
@@ -211,5 +225,10 @@ view: accidents {
     label: "This is not the view name"
     type: count
     drill_fields: [id, airport_name]
+    # link: {
+    #   label: "Owen Measure"
+    #   url: "{{link}}&pivots=accidents.country"
+    # }
+    html: {{ air_carrier._value }} ;;
   }
 }
